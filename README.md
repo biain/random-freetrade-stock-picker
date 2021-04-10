@@ -5,4 +5,8 @@ List of stocks is based on this list published [here](https://docs.google.com/sp
 
 ## [Live Website](https://biain.github.io/random-freetrade-stock-picker/)
 
-All Credit goes to [RayBB.](https://github.com/RayBB/random-stock-picker)
+## Credits 
+
+Stock picker js [RayBB.](https://github.com/RayBB/random-stock-picker)
+Floating SVG background [RSH87.](https://codepen.io/RSH87/pen/grdJKQ)
+SVG logo and stock list [Freetrade.](https://freetrade.io/stock-list)

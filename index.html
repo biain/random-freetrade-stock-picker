@@ -1,78 +1,124 @@
-<!doctype html>
-<html class="h-100" lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A simple tool to pick a random stock for you">
-    <meta name="author" content="@SirMonkMan">
-    <meta name="theme-color" content="#007bff">
-    <link rel="icon" href="favicon.ico">
-    <title>Random Freetrade Stock Picker</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="stocks.js" ></script>
-  </head>
-  <body class="h-100">
-    <div class="container h-100 justify-content-center">
-      <div class="row h-100 card-deck text-center justify-content-center align-items-center">
-        <div class="col-lg-8">
-          <div class="card box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Random Freetrade Stock Picker</h4>
-            </div>
-            <div class="card-body">
-              <h1 id="ticker" class="card-title pricing-card-title">Loading...</h1>
-              <h2 id="title" class="card-title pricing-card-title">Loading...</h2>
-              <a id="google" target="_blank" rel="noopener" href="#">Google Finance</a>
-              <hr>
-              <div class="wrapper">
-                <div class="wrapper__links">
-                  <a type="button" class="social-link social-link--dribbble" id="dribbble" value="Refresh" onclick="newStock()">
-                                  <input type="button" class="btn-pink" id="refresh" value="Refresh" onclick="newStock()">
-                  </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span id="foot">
-      <small class="col-lg-12 text-center white">Made by
-        <a class="white font-italic" href="https://github.com/biain/random-freetrade-stock-picker">SirMonkMan</a>
-      </small>
-    </span>
-    <script>
-      newStock();
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Floating SVGS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A simple tool to pick a random stock for you">
+  <meta name="author" content="@SirMonkMan">
+  <link rel="icon" href="favicon.ico">
+  <title>Random Freetrade Stock Picker</title>
+  <script src="stocks.js" ></script>
 
-      function newStock() {
-        let random = Math.floor(Math.random() * Math.floor(stocks.length));
-        curStockTicker = stocks[random].ticker;
-        curStockTitle = stocks[random].title;
-        curStockMarket = stocks[random].Exchange;
-
-        switch (curStockMarket) {
-        default:
-          curStockMarket = curStockMarket;
-          break;
-        case "NAS":
-          curStockMarket = "NASDAQ";
-          break;
-        case "NYS":
-          curStockMarket = "NYSE";
-          break;
-        }
+</head>
+<body>
+<!-- partial:index.partial.html -->
+  <div class='page'>
+    <h3 id="header" class="card-header">Random Freetrade Stock Picker</h3>
+    <hr>
+    <h1 id="ticker" class="card-title">Loading...</h1>
+    <h3 id="title" class="card-title">Loading...</h3>
+    <a id="google" target="_blank" rel="noopener" href="#">Google Finance</a>
+<br>
+<br>
+    <div class="wrapper">
+      <div class="wrapper__links">
+        <a type="button" class="social-link social-link--dribbble" id="dribbble" value="Refresh" onclick="newStock()">
+                        <input type="button" class="btn-pink" id="refresh" value="Refresh" onclick="newStock()">
+        </a>
+  </div>
 
 
-        document.querySelector("#ticker").innerText = curStockTicker;
-        document.querySelector("#title").innerText = curStockTitle;
-        document.querySelector("#google").href = "https://www.google.com/finance/quote/" + curStockTicker + ":" + curStockMarket;
-      }
+</div>
+</div>
 
-    </script>
+<div class="wrap">
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">	
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
 
-    <style>
-    #foot{
-      position: absolute; bottom: 10px
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">	
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 223.6,183.6 -29.4,-16.9 c -3,-1.7 -6.6,-1.7 -9.5,0 l -20.1,11.6 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 V 232 c 0,-11.4 6.1,-21.8 15.9,-27.5 L 223.6,192 c 3.2,-2 3.2,-6.5 0,-8.4 z M 134.4,53.6 V 26.4 c 0,-3.4 -1.8,-6.6 -4.8,-8.3 L 100.2,1.1 C 97,-0.7 93.1,1.6 93.1,5.2 v 29 C 93.1,45.6 87,56 77.2,61.7 l -57.1,33 C 7.9,102 0.3,115.1 0.3,129.3 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 57.1,-33 c 12.3,-7.2 19.8,-20.3 19.8,-34.5 z m 65.1,60.5 -29.4,-17 c -3,-1.7 -6.6,-1.7 -9.5,0 l -68.2,39.4 c -12.3,7.1 -19.9,20.2 -19.9,34.4 v 19.2 c 0,3.4 1.8,6.6 4.8,8.3 l 29.4,17 c 3.2,1.8 7.1,-0.5 7.1,-4.1 v -21.1 c 0,-11.4 6.1,-21.8 15.9,-27.5 l 69.8,-40.3 c 3.2,-1.9 3.2,-6.4 0,-8.3 z" />
+</svg>
+</div>
+<!-- partial -->
+  
+<div class="container h-100 justify-content-center">
+  <div class="row h-100 card-deck text-center justify-content-center align-items-center">
+    <div class="col-lg-8">
+      <div class="card box-shadow">
+
+  </div>
+</div>
+<span id="foot">
+  <small class="col-lg-12 text-center white">Made by
+    <a class="white font-italic" href="https://github.com/biain/random-freetrade-stock-picker">SirMonkMan</a>
+  </small>
+</span>
+<script>
+  newStock();
+
+  function newStock() {
+    let random = Math.floor(Math.random() * Math.floor(stocks.length));
+    curStockTicker = stocks[random].ticker;
+    curStockTitle = stocks[random].title;
+    curStockMarket = stocks[random].Exchange;
+
+    switch (curStockMarket) {
+    default:
+      curStockMarket = curStockMarket;
+      break;
+    case "NAS":
+      curStockMarket = "NASDAQ";
+      break;
+    case "NYS":
+      curStockMarket = "NYSE";
+      break;
     }
-    </style>
-  </body>
+
+
+    document.querySelector("#ticker").innerText = curStockTicker;
+    document.querySelector("#title").innerText = curStockTitle;
+    document.querySelector("#google").href = "https://www.google.com/finance/quote/" + curStockTicker + ":" + curStockMarket;
+  }
+
+</script>
+
+<style>
+#foot{
+  position: absolute; bottom: 10px
+}
+</style>
+
+</body>
 </html>
