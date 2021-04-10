@@ -3,31 +3,43 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 667px) {
+  body {
+      overflow-x: hidden !important;
+  }
+  .page {
+      min-width: 680px !important;
+      min-height: 400px !important;
+      max-height: 680px !important;
+      overflow-x: hidden !important;
+  }
+}
+
 body {
   font-family: "Arial", sans-serif;
   color: #070707;
-  text-rendering: optimizeLegibility;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #3b3d54;
-  font-size: 14px;
+  font-size: 18px;
   overflow: hidden;
 }
 
 .wrap {
   perspective-origin: 50% 50%;
+  background-size: 125px 175px;
 }
 
 .page {
   margin: 3%;
+  min-width: 300px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
   border-radius: 3px;
   text-align: center;
-  font-size: 1.4vw;
 }
 
 .svg {
