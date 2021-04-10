@@ -8,8 +8,6 @@
       overflow-x: hidden !important;
   }
   .page {
-      min-width: 680px !important;
-      min-height: 400px !important;
       max-height: 680px !important;
       overflow-x: hidden !important;
   }
