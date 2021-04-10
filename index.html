@@ -1,7 +1,8 @@
 <!doctype html>
 <html class="h-100" lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A simple tool to pick a random stock for you">
     <meta name="author" content="@SirMonkMan">
@@ -11,7 +12,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="stocks.js" ></script>
   </head>
-
   <body class="h-100">
     <div class="container h-100 justify-content-center">
       <div class="row h-100 card-deck text-center justify-content-center align-items-center">
@@ -25,17 +25,21 @@
               <h2 id="title" class="card-title pricing-card-title">Loading...</h2>
               <a id="google" target="_blank" rel="noopener" href="#">Google Finance</a>
               <hr>
-              <input type="button" class="btn btn-lg btn-dark" id="refresh" value="Refresh" onclick="newStock()">
+              <div class="wrapper">
+                <div class="wrapper__links">
+                  <a type="button" class="social-link social-link--dribbble" id="dribbble" value="Refresh" onclick="newStock()">
+                                  <input type="button" class="btn-pink" id="refresh" value="Refresh" onclick="newStock()">
+                  </a>
             </div>
           </div>
         </div>
-        <span id="foot">
-          <small class="col-lg-12 text-center white">Made by
-            <a class="white font-italic" href="https://github.com/biain/random-freetrade-stock-picker">SirMonkMan</a>
-          </small>
-        </span>
       </div>
     </div>
+    <span id="foot">
+      <small class="col-lg-12 text-center white">Made by
+        <a class="white font-italic" href="https://github.com/biain/random-freetrade-stock-picker">SirMonkMan</a>
+      </small>
+    </span>
     <script>
       newStock();
 
@@ -63,21 +67,11 @@
         document.querySelector("#google").href = "https://www.google.com/finance/quote/" + curStockTicker + ":" + curStockMarket;
       }
 
-      
-
-
-
     </script>
 
     <style>
-    body {
-      background-color: #f7618b;
-    }
     #foot{
       position: absolute; bottom: 10px
-    }
-    .white{
-      color: white!important;
     }
     </style>
   </body>
