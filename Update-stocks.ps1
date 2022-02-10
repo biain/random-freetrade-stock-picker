@@ -34,4 +34,4 @@ $CSVFilePath = "D:\Downloads\Freetrade Investment Universe - Freetrade Universe.
 $string = "var stocks = " 
 [string]$Output = ($string + $Worker2)
 
-$Output | Out-File -FilePath "C:\Projects\biain\random-freetrade-stock-picker\stocks.js"
+$Output | Out-File -FilePath "C:\Users\SirMonkMan\random-freetrade-stock-picker\stocks.js"
